@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Coming Soon ~ Kumala Website</title>
+    <style>
+
+        /* ══ RESET & BASE ══ */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        body {
+            background-color: #000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Lexend Deca', lexend, sans-serif;
+            overflow-x: hidden;
+        }
+
+        @font-face {
+            font-family: lexend;
+            src: url(Lexend_Deca/LexendDeca-VariableFont_wght.ttf);
+        }
+
+        /* ══ KONTEN UTAMA ══ */
+        .bungkus {
+            width: 100%;
+            padding: 0 20px;
+            text-align: center;
+            margin-top: clamp(60px, 15vh, 180px);
+            margin-bottom: clamp(80px, 12vh, 120px);
+        }
+
+        .bungkus p {
+            font-size: clamp(16px, 4vw, 50px);
+            word-break: break-word;
+            line-height: 1.4;
+        }
+
+        .bungkus p a {
+            font-size: clamp(16px, 4vw, 50px);
+            color: red;
+            text-shadow: 0px 0px 15px red;
+        }
+
+        .bungkus h1 {
+            font-size: clamp(36px, 10vw, 120px);
+            font-weight: 800;
+            letter-spacing: clamp(1px, 0.5vw, 4px);
+            line-height: 1.1;
+            margin-top: clamp(10px, 2vh, 30px);
+           
+        }
+
+        /* ══ ID TEXT ══ */
+        #text {
+            color: #ff2222;
+            text-shadow:
+                0 0 5px #ff0000,
+                0 0 20px #ff0000,
+                0 0 60px #ff0000;
+            animation: neonFlicker 2.5s infinite;
+        }
+
+        /* ══ ANIMASI NEON FLICKER ══ */
+        @keyframes neonFlicker {
+            0%   { opacity: 1;    text-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000, 0 0 60px #ff0000; }
+            5%   { opacity: 0.85; text-shadow: none; }
+            6%   { opacity: 1;    text-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000, 0 0 60px #ff0000; }
+            10%  { opacity: 1;    text-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000, 0 0 60px #ff0000; }
+            11%  { opacity: 0.7;  text-shadow: none; }
+            12%  { opacity: 1;    text-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000, 0 0 60px #ff0000; }
+            45%  { opacity: 1;    text-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000, 0 0 60px #ff0000; }
+            46%  { opacity: 0.9;  text-shadow: 0 0 5px #ff0000; }
+            47%  { opacity: 1;    text-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000, 0 0 60px #ff0000; }
+            100% { opacity: 1;    text-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000, 0 0 60px #ff0000; }
+        }
+
+        /* ══ SPLASH SCREEN ══ */
+        #splash {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.99);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(10px, 2vh, 20px);
+            z-index: 9999;
+            cursor: pointer;
+            transition: opacity 0.7s ease;
+            user-select: none;
+            padding: 20px;
+        }
+        #splash.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #splash .splash-icon {
+            animation: bouncePulse 1.3s ease-in-out infinite;
+            line-height: 1;
+        }
+        #splash .splash-icon svg {
+            width: clamp(56px, 15vw, 100px);
+            height: clamp(56px, 15vw, 100px);
+            fill: #fcfcfc;
+            filter: drop-shadow(0 0 18px #ffffff);
+        }
+        #splash .splash-title {
+            font-family: 'Lexend Deca', sans-serif;
+            font-size: clamp(18px, 5vw, 35px);
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 0 15px #f9f7f7;
+            letter-spacing: clamp(1px, 0.5vw, 4px);
+            text-transform: uppercase;
+            text-align: center;
+        }
+        #splash .splash-sub {
+            font-family: 'Lexend Deca', sans-serif;
+            font-size: clamp(10px, 2vw, 14px);
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        @keyframes bouncePulse {
+            0%, 100% { transform: scale(1);    opacity: 1; }
+            50%       { transform: scale(1.18); opacity: 0.65; }
+        }
+
+        /* ══ TOMBOL MUTE ══ */
+        #music-btn {
+            position: fixed;
+            bottom: clamp(16px, 3vh, 30px);
+            right: clamp(16px, 3vw, 30px);
+            background: transparent;
+            border: 2px solid rgba(248, 243, 243, 0.6);
+            border-radius: 50%;
+            width: clamp(42px, 8vw, 52px);
+            height: clamp(42px, 8vw, 52px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 999;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #music-btn:hover {
+            border-color: #f4f4f4;
+            box-shadow: 0 0 20px rgba(240, 230, 230, 0.7);
+            transform: scale(1.1);
+        }
+        #music-btn:active {
+            transform: scale(0.95);
+        }
+        #music-btn svg {
+            width: clamp(18px, 4vw, 22px);
+            height: clamp(18px, 4vw, 22px);
+            fill: #ffffff;
+            filter: drop-shadow(0 0 4px #edeaea);
+        }
+
+        /* ══ LANDSCAPE MOBILE ══ */
+        @media only screen and (max-height: 500px) and (orientation: landscape) {
+            .bungkus {
+                margin-top: clamp(20px, 5vh, 60px);
+                margin-bottom: clamp(60px, 10vh, 80px);
+            }
+            .bungkus h1 {
+                font-size: clamp(28px, 8vw, 60px);
+            }
+            .bungkus p,
+            .bungkus p a {
+                font-size: clamp(14px, 3vw, 28px);
+            }
+            #splash .splash-icon svg {
+                width: clamp(36px, 8vh, 60px);
+                height: clamp(36px, 8vh, 60px);
+            }
+            #splash .splash-title {
+                font-size: clamp(14px, 4vw, 22px);
+            }
+        }
+
+        /* ══ LAYAR BESAR > 1440px ══ */
+        @media only screen and (min-width: 1440px) {
+            .bungkus h1 {
+                font-size: clamp(100px, 8vw, 160px);
+            }
+            .bungkus p,
+            .bungkus p a {
+                font-size: clamp(40px, 3vw, 60px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ══ SPLASH ══ -->
+    <div id="splash" onclick="startMusicFromSplash()">
+        <div class="splash-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/>
+            </svg>
+        </div>
+        <div class="splash-title">Klik untuk masuk</div>
+        <div class="splash-sub">tap anywhere to enter</div>
+    </div>
+
+    <!-- Audio looping -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="Maroon 5 - Payphone ft. Wiz Khalifa (Lyric Video).mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Tombol mute / unmute -->
+    <button id="music-btn" title="Mute / Unmute musik" onclick="toggleMusic()">
+        <svg id="icon-on" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+        <svg id="icon-off" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+        </svg>
+    </button>
+
+    <div class="bungkus">
+        <p>Kumala Website - <a id="text"></a></p>
+        <h1>Coming Soon</h1>
+        <script src="script.js"></script>
+    </div>
+
+    <script>
+        const audio   = document.getElementById('bg-music');
+        const splash  = document.getElementById('splash');
+        const iconOn  = document.getElementById('icon-on');
+        const iconOff = document.getElementById('icon-off');
+        let playing   = false;
+
+        function startMusicFromSplash() {
+            audio.volume = 0.5;
+            audio.play().then(() => {
+                playing = true;
+            }).catch(err => {
+                console.warn('Audio gagal:', err);
+            });
+            splash.classList.add('hide');
+            setTimeout(() => { splash.style.display = 'none'; }, 700);
+        }
+
+        function toggleMusic() {
+            if (playing) {
+                audio.pause();
+                playing = false;
+                iconOn.style.display  = 'none';
+                iconOff.style.display = 'block';
+            } else {
+                audio.play();
+                playing = true;
+                iconOn.style.display  = 'block';
+                iconOff.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>
